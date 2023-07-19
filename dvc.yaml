@@ -1,0 +1,9 @@
+stages:
+  load_postgres_backup:
+    cmd: bash src/1_load_pg_backup.sh
+    deps:
+      - downloads/QSARToolbox46May2023/Database/Toolboxv4v23.backup
+  write_postgres_to_parquet: 
+    cmd: src/2_postgres_to_parquet.py
+    outs:
+      - brick
