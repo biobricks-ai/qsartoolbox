@@ -7,14 +7,6 @@ stages:
       hash: md5
       md5: 152ac7bc3a5facd7d67d56f8cafa9dcd
       size: 2018622255
-  compound_download:
-    cmd: src/compound/1_download_compound.sh
-    outs:
-    - path: brick
-      hash: md5
-      md5: 8112dc18a1dc4d3f31b50d39060e4267.dir
-      size: 3466627793
-      nfiles: 69
   write_postgres_to_parquet:
     cmd: src/2_postgres_to_parquet.py
     outs:
@@ -23,3 +15,5 @@ stages:
       md5: 8112dc18a1dc4d3f31b50d39060e4267.dir
       size: 3466627793
       nfiles: 69
+  cleanup:
+    cmd: bash src/3_cleanup.sh

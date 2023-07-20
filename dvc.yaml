@@ -7,3 +7,5 @@ stages:
     cmd: src/2_postgres_to_parquet.py
     outs:
       - brick
+  cleanup: # remove postgres volume and docker compose down
+    cmd: bash src/3_cleanup.sh
